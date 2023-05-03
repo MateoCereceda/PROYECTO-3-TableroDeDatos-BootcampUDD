@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#search-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    border-radius: 3px;
+}
+
+.artwork {
+    text-align: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.artwork img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+.artwork h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.artwork p {
+    color: #777;
+    font-size: 1rem;
+}
+
+#gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
