@@ -28,6 +28,8 @@ async function searchArtworks(query) {
 
 function displayResults(artworks) {
     gallery.innerHTML = '';
+    const chartContainer = document.getElementById('chartContainer');
+    chartContainer.innerHTML = '';
 
     if (artworks.length > 0) {
         const artwork = artworks[0]; // Tomamos solo la primera obra de arte
@@ -48,6 +50,47 @@ function displayResults(artworks) {
         artDiv.appendChild(artArtist);
 
         gallery.appendChild(artDiv);
+
+        const artistCount = {};
+
+        artworks.forEach((artwork) => {
+            const artist = artwork.principalOrFirstMaker;
+            if (artistCount.hasOwnProperty(artist)) {
+                artistCount[artist]++;
+            } else {
+                artistCount[artist] = 1;
+            }
+        });
+
+        chartContainer.innerHTML = '<canvas id="artChart"></canvas>'; // Agrega el elemento canvas aquí
+        const ctx = document.getElementById('artChart').getContext('2d');
+
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [artwork.principalOrFirstMaker],
+                datasets: [
+                    {
+                        label: 'Número de obras de arte del arísta que Rijksmuseum Art Gallery tiene en posesión',
+                        data: [artistCount[artwork.principalOrFirstMaker]],
+                        backgroundColor: [
+                            'rgba(60, 60, 60, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(90, 90, 90, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
     } else {
         gallery.innerHTML = '<p>No se encontraron resultados.</p>';
     }

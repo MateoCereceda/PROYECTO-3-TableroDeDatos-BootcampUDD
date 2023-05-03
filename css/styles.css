@@ -81,3 +81,9 @@ h1 {
     align-items: center;
     min-height: 300px;
 }
+
+#chartContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
