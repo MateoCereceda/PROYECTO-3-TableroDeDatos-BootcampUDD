@@ -29,7 +29,9 @@ async function searchArtworks(query) {
 function displayResults(artworks) {
     gallery.innerHTML = '';
 
-    artworks.forEach((artwork) => {
+    if (artworks.length > 0) {
+        const artwork = artworks[0]; // Tomamos solo la primera obra de arte
+
         const artDiv = document.createElement('div');
         artDiv.classList.add('artwork');
 
@@ -46,5 +48,7 @@ function displayResults(artworks) {
         artDiv.appendChild(artArtist);
 
         gallery.appendChild(artDiv);
-    });
+    } else {
+        gallery.innerHTML = '<p>No se encontraron resultados.</p>';
+    }
 }
